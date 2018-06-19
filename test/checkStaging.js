@@ -27,6 +27,10 @@ const runCommand = (args) => {
 
 const checkStaging = async () => {
   let github = new Github();
+  github.authenticate({
+    type: 'oauth',
+    token: process.env.HOMEBREW_GITHUB_API_TOKEN,
+  });
 
   // push a commit to the repo and get its sha
   let sha = await pushCommit();

@@ -236,6 +236,8 @@ async function jobHandler(message) {
   debug('Received message. Starting processing...');
   let context = this.context;
 
+  console.log('********************* '  + message.payload.installationId + '*****************************');
+  console.log(JSON.stringify(message));
   // Authenticating as installation.
   let instGithub = await context.github.getInstallationGithub(message.payload.installationId);
 
