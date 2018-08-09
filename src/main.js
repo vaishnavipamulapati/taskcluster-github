@@ -103,6 +103,8 @@ const load = loader({
     requires: ['cfg', 'monitor'],
     setup: async ({cfg, monitor}) => data.Builds.setup({
       tableName: cfg.app.buildsTableName,
+      operationReportChance: cfg.azure.reportChance,
+      operationReportThreshold: cfg.azure.reportThreshold,
       credentials: sasCredentials({
         accountId: cfg.azure.accountId,
         tableName: cfg.app.buildsTableName,
@@ -117,6 +119,8 @@ const load = loader({
     requires: ['cfg', 'monitor'],
     setup: async ({cfg, monitor}) => data.OwnersDirectory.setup({
       tableName: cfg.app.ownersDirectoryTableName,
+      operationReportChance: cfg.azure.reportChance,
+      operationReportThreshold: cfg.azure.reportThreshold,
       credentials: sasCredentials({
         accountId: cfg.azure.accountId,
         tableName: cfg.app.ownersDirectoryTableName,
