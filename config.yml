@@ -37,8 +37,8 @@ defaults:
   server:
     port: !env:number PORT
     env: 'development'
-    forceSSL: false
-    trustProxy: false
+    forceSSL: !env:bool FORCE_SSL
+    trustProxy: !env:bool TRUST_PROXY
 
   pulse:
     username: !env PULSE_USERNAME
@@ -64,10 +64,6 @@ production:
 
   server:
     env: 'production'
-    forceSSL: true
-    # We trust the proxy on heroku, as the SSL end-point provided by heroku
-    # is a proxy, so we have to trust it.
-    trustProxy: true
 
   taskcluster:
     schedulerId: taskcluster-github
